@@ -1,4 +1,4 @@
-class Solution(object):
+class SolutionTopK(object):
     def topKFrequent(self, nums, k):
         """
         :type nums: List[int]
