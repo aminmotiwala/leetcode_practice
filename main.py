@@ -1,5 +1,6 @@
 from TopKFrequent_347 import SolutionTopK
 from ProductArrayExceptSelf_238 import SolutionProductArray
+from BinarySearchRevision import SolutionBinarySearch
 
 def topK():
     topKSolution = SolutionTopK()
@@ -12,7 +13,13 @@ def productArray():
     nums = [1,2,3,4]
     print(productArraySolution.productExceptSelfOptimized(nums))
 
+def performBinarySearch():
+    nums = [2, 5, 8, 12, 16, 23, 38, 56, 72, 91]
+    target = 23
+    binarySearch = SolutionBinarySearch()
+    print(binarySearch.search(nums,23))
+
 if __name__ == '__main__':
-    productArray() # call the method you want to run.
+    performBinarySearch() # call the method you want to run.
 
 
