@@ -1,6 +1,8 @@
 from TopKFrequent_347 import SolutionTopK
 from ProductArrayExceptSelf_238 import SolutionProductArray
 from BinarySearchRevision import SolutionBinarySearch
+from SortingRevision import SortingAlgos
+from ValidSudoku_36 import ValidSudokuSolution
 
 def topK():
     topKSolution = SolutionTopK()
@@ -18,8 +20,19 @@ def performBinarySearch():
     target = 23
     binarySearch = SolutionBinarySearch()
     print(binarySearch.search(nums,23))
+    print(binarySearch.searchRecursive(nums,23))
+
+def performSelectionSort():
+    nums = [64, 25, 12, 22, 11]
+    sortingAlogs = SortingAlgos()
+    print(sortingAlogs.selectionSort(nums))
+
+def checkSudokuBoard():
+    board = [["5","3",".",".","7",".",".",".","."],["6",".",".","1","9","5",".",".","."],[".","9","8",".",".",".",".","6","."],["8",".",".",".","6",".",".",".","3"],["4",".",".","8",".","3",".",".","1"],["7",".",".",".","2",".",".",".","6"],[".","6",".",".",".",".","2","8","."],[".",".",".","4","1","9",".",".","5"],[".",".",".",".","8",".",".","7","9"]]
+    validSudoku = ValidSudokuSolution()
+    print(validSudoku.isValidSudoku(board))
 
 if __name__ == '__main__':
-    performBinarySearch() # call the method you want to run.
+    checkSudokuBoard() # call the method you want to run.
 
 
