@@ -3,6 +3,7 @@ from ProductArrayExceptSelf_238 import SolutionProductArray
 from BinarySearchRevision import SolutionBinarySearch
 from SortingRevision import SortingAlgos
 from ValidSudoku_36 import ValidSudokuSolution
+from ValidPalindrome_125 import SolutionValidPalindrome
 
 def topK():
     topKSolution = SolutionTopK()
@@ -32,7 +33,12 @@ def checkSudokuBoard():
     validSudoku = ValidSudokuSolution()
     print(validSudoku.isValidSudoku(board))
 
+def validPalindrom():
+    input = "race a car"
+    validPalind = SolutionValidPalindrome()
+    print(validPalind.isPalindromeOptimized(input))
+
 if __name__ == '__main__':
-    checkSudokuBoard() # call the method you want to run.
+    validPalindrom() # call the method you want to run.
 
 
