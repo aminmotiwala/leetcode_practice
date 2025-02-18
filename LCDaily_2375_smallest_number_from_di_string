@@ -1,0 +1,82 @@
+package org.example;
+
+import java.util.Stack;
+
+/**
+ * Given a 0-indexed string pattern consisting of characters 'I' (increasing) and 'D' (decreasing),
+ * this method generates the lexicographically smallest possible numeric string that follows the pattern.
+ *
+ * <p>The generated string consists of the digits '1' to '9', where each digit is used at most once.
+ * The conditions for forming the string are:
+ * <ul>
+ *     <li>If pattern[i] == 'I', then num[i] &lt; num[i + 1].</li>
+ *     <li>If pattern[i] == 'D', then num[i] &gt; num[i + 1].</li>
+ * </ul>
+ *
+ * <p><strong>Example 1:</strong>
+ * <pre>
+ * Input: pattern = "IIIDIDDD"
+ * Output: "123549876"
+ * Explanation:
+ * - At indices 0, 1, 2, and 4, num[i] &lt; num[i+1].
+ * - At indices 3, 5, 6, and 7, num[i] &gt; num[i+1].
+ * - Some possible values of num: "245639871", "135749862", "123849765".
+ * - The lexicographically smallest valid num is "123549876".
+ * - "123414321" is not valid because digit '1' appears more than once.
+ * </pre>
+ *
+ * <p><strong>Example 2:</strong>
+ * <pre>
+ * Input: pattern = "DDD"
+ * Output: "4321"
+ * Explanation:
+ * - Some possible values of num: "9876", "7321", "8742".
+ * - The lexicographically smallest valid num is "4321".
+ * </pre>
+ *
+ * <p><strong>Constraints:</strong>
+ * <ul>
+ *     <li>1 &le; pattern.length &le; 8</li>
+ *     <li>pattern consists of only the characters 'I' and 'D'.</li>
+ * </ul>
+ *
+ * @return The lexicographically smallest valid number string following the pattern.
+ *
+ * Leetcode: https://leetcode.com/problems/construct-smallest-number-from-di-string/description/?envType=daily-question&envId=2025-02-18
+ */
+
+public class SmallestNumber {
+
+    public static void main(String[] args) {
+        SmallestNumber sm = new SmallestNumber();
+        System.out.println(sm.smallestNumber("IIIDIDDD"));
+    }
+    public String smallestNumber(String pattern) {
+        Stack<Integer> integerStack = new Stack<>();
+        String result = "";
+        if (pattern.length() == 0 ){
+            return result;
+        }
+        int currentInsert = 1;
+        integerStack.push(currentInsert);
+        for (int i = 0 ; i < pattern.length() ; i++){
+            currentInsert++;
+
+            Character currentOperation = pattern.charAt(i);
+            if (currentOperation.equals('I')){
+                while (!integerStack.isEmpty()){
+                    result += integerStack.pop();
+                }
+            }
+            integerStack.push(currentInsert);
+
+        }
+        while (!integerStack.isEmpty()){
+            result += integerStack.pop();
+        }
+
+        return result;
+    }
+
+
+}
